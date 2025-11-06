@@ -68,34 +68,3 @@ class TinyGPT(nn.Module):
 
         logits = self.out(x)
         return logits
-
-
-"""
-class TinyGPT(nn.Module):
-    def __init__(self, vocab_size, emb_size=512, n_head=8, num_layers=7, max_len=768):
-        super().__init__()
-        self.embed = nn.Embedding(vocab_size, emb_size)
-        self.pos_embed = nn.Embedding(max_len, emb_size)
-
-        self.blocks = nn.ModuleList([
-            TransformerBlock(emb_size, n_head)
-            for _ in range(num_layers)
-        ])
-
-        self.out = nn.Linear(emb_size, vocab_size)
-
-    def forward(self, x):
-        B, T = x.shape
-        pos = torch.arange(T, device=x.device).unsqueeze(0).expand(B, T)
-
-        x = self.embed(x) + self.pos_embed(pos)
-
-        # causal mask
-        mask = torch.triu(torch.full((T, T), float('-inf'), device=x.device), diagonal=1)
-
-        for block in self.blocks:
-            x = block(x, mask)
-
-        logits = self.out(x)
-        return logits
-"""
