@@ -53,8 +53,7 @@ TinyGPT/
 │       └── simple_RAG.py         # RAG vector database implementation
 ├── tests/
 │   └── dataset_loader_tests.py   # Unit tests for data loading
-└── TinyGPT/                      # Duplicate directory structure
-    └── old/                      # Older versions and archived files
+├── old/                      # Older versions and archived files
 ```
 
 ## Usage
